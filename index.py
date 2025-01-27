@@ -1,4 +1,4 @@
-from login import queryFatura
+from QueryBrudam import queryFatura
 
 id = input('DIGITE O ID DA FATURA QUE GOSTARIA DE GERAR O BOLETO: ')
 
