@@ -35,7 +35,7 @@ def loginInter():
 
         # Verificando a resposta
         if response.status_code == 200:
-            print("Token recebido:", response.json())
+            
             token = response.json().get("access_token")
             print(token)
             return token
@@ -104,26 +104,19 @@ dados_cobranca = {
 
 # Obter token
 
-token = loginInter()
-headers = {
-        "Authorization": f"Bearer {token}",
-        "Content-Type": "application/json",
-        "x-conta-corrente": conta_corrente,
-    }
-print("Token:", token)
-print("Headers:", headers)
-print("Dados da cobrança:", json.dumps(dados_cobranca, indent=2))
-if token:
+# token = loginInter()
+
+# if token:
     
-    # Emitir cobrança
-    resposta_cobranca = emitir_cobranca(token, conta_corrente, dados_cobranca)
-    if resposta_cobranca:
+#     # Emitir cobrança
+#     resposta_cobranca = emitir_cobranca(token, conta_corrente, dados_cobranca)
+#     if resposta_cobranca:
         
-        print("Cobrança emitida com sucesso:", json.dumps(resposta_cobranca, indent=2))
-    else:
-        print("Falha ao emitir a cobrança.")
-else:
-    print("Falha ao obter o token de autenticação.")
+#         print("Cobrança emitida com sucesso:", json.dumps(resposta_cobranca, indent=2))
+#     else:
+#         print("Falha ao emitir a cobrança.")
+# else:
+#     print("Falha ao obter o token de autenticação.")
 
         
         
