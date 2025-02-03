@@ -72,35 +72,35 @@ def emitir_cobranca(token, conta_corrente, dados_cobranca):
         print(f"Erro ao emitir cobrança: {e}")
         return None
 
-conta_corrente = "172384079"
+# conta_corrente = "172384079"
 
-# Dados da cobrança
-dados_cobranca = {
-    "seuNumero": "9866",
-    "valorNominal": 291.50,
-    "dataVencimento": "2025-01-30",
-    "numDiasAgenda": 30,
-    "pagador": {
-        "cpfCnpj": "04009865000170",
-        "tipoPessoa": "JURIDICA",
-        "nome": nomeCliente,
-        "endereco": "Avenida Brasil, 1200",
-        "cidade": "Belo Horizonte",
-        "uf": "MG",
-        "cep": "30110000",
-    },
+# # Dados da cobrança
+# dados_cobranca = {
+#     "seuNumero": "9866",
+#     "valorNominal": 291.50,
+#     "dataVencimento": "2025-01-30",
+#     "numDiasAgenda": 30,
+#     "pagador": {
+#         "cpfCnpj": "04009865000170",
+#         "tipoPessoa": "JURIDICA",
+#         "nome": nomeCliente,
+#         "endereco": "Avenida Brasil, 1200",
+#         "cidade": "Belo Horizonte",
+#         "uf": "MG",
+#         "cep": "30110000",
+#     },
     
-    "multa": {
-        "taxa": 2,
-        "codigo": "PERCENTUAL",
-    },
-    "mora": {
-        "taxa": 0.07,
-        "codigo": "TAXAMENSAL",
-    },
+#     "multa": {
+#         "taxa": 2,
+#         "codigo": "PERCENTUAL",
+#     },
+#     "mora": {
+#         "taxa": 0.07,
+#         "codigo": "TAXAMENSAL",
+#     },
    
  
-}
+# }
 
 # Obter token
 

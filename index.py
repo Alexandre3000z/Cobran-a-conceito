@@ -1,10 +1,22 @@
 import json
 from QueryBrudam import queryFatura
 from teste import loginInter, emitir_cobranca
-from utilities import identificar_tipo_pessoa
+from utilities import identificar_tipo_pessoa, validar_cep
 import time
 
-id = input('DIGITE O ID DA FATURA QUE GOSTARIA DE GERAR O BOLETO: ')
+id = input('INFORME O ID DA FATURA QUE GOSTARIA DE GERAR O BOLETO: ')
+
+
+# Loop para garantir que um CEP válido seja inserido
+while True:
+    cep = input("INFORME O CEP DO CLIENTE: ")
+    
+    if validar_cep(cep):
+        print("✅ CEP válido:", cep)
+        break  # Sai do loop se o CEP for válido
+    else:
+        print("❌ CEP inválido! O CEP deve conter exatamente 8 dígitos numéricos. Tente novamente.")
+
 
 brudam = queryFatura(id)[0]
 print(brudam)
@@ -22,9 +34,9 @@ token = loginInter()
 conta_corrente = '172384079'
 
 dados_cobranca = {
-    "seuNumero": "9866",
-    "valorNominal": 291.50,
-    "dataVencimento": "2025-01-30",
+    "seuNumero": id,
+    "valorNominal": brudam['valor'],
+    "dataVencimento": brudam['data_vencimento'],
     "numDiasAgenda": 30,
     "pagador": {
         "cpfCnpj": brudam['cnpj_cliente'],
@@ -47,6 +59,8 @@ dados_cobranca = {
    
  
 }
+
+print(dados_cobranca)
 
 # if token:
     
